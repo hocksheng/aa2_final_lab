@@ -30,7 +30,7 @@
 - name: End to end smoke tests
   hosts: backend_servers
   become: false
-  gather_facts: true
+  gather_facts: false
   tags:
     - smoketest 
   tasks:
