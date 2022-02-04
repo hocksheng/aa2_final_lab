@@ -1,4 +1,4 @@
-tasks:
+---
 
     - name: Create flask user
       user:
