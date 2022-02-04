@@ -1,0 +1,6 @@
+- name: Play to setup mysql server
+  hosts: database_servers
+  become: true
+  gather_facts: false
+  roles:
+    - postgres
