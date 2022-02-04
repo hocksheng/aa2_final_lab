@@ -1,6 +1,6 @@
 ---
 - name: End to end smoke tests
-  hosts: app_servers:database_servers
+  hosts: backend_servers:database_servers
   gather_facts: true
   become: true
   tags:
@@ -15,13 +15,13 @@
         login_user: flask
         login_password: redhat
         ssl_mode: disable
-      delegate_to: "{{ groups.app_servers[0] }}"
+      delegate_to: "{{ groups.backend_servers[0] }}"
       run_once: true
       tags:
         - smoketest
 
 - name: End to end smoke tests
-  hosts: app_servers
+  hosts: backend_servers
   become: false
   gather_facts: false
   tags:
