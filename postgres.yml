@@ -1,4 +1,5 @@
-- name: Play to setup mysql server
+---
+- name: Play to setup postgres server
   hosts: database_servers
   become: true
   gather_facts: false
