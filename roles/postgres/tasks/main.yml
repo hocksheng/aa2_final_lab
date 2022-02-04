@@ -1,4 +1,5 @@
-- name: Install Postgres packages
+---
+    - name: Install Postgres packages
       package:
         name: "{{ __package }}"
         state: present
