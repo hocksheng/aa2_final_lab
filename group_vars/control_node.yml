@@ -12,7 +12,7 @@ openstack_servers:
     openstack_cloud: "{{GUID}}-project"
     flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
     key_name: "{{GUID}}-keypair"
-    network: "{{GUID}}-prod-network"
+    network: "{{GUID}}-dev-network"
   - instance_name: app2
     AnsibleGroup: app_servers
     deployment: prod
@@ -21,7 +21,7 @@ openstack_servers:
     openstack_cloud: "{{GUID}}-project"
     flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
     key_name: "{{GUID}}-keypair"
-    network: "{{GUID}}-prod-network"
+    network: "{{GUID}}-dev-network"
   - instance_name: appdb1
     AnsibleGroup: database_servers
     deployment: prod
@@ -30,7 +30,7 @@ openstack_servers:
     openstack_cloud: "{{GUID}}-project"
     flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
     key_name: "{{GUID}}-keypair"
-    network: "{{GUID}}-prod-network"
+    network: "{{GUID}}-dev-network"
   - instance_name: frontend1
     AnsibleGroup: load_balancers
     deployment: prod
@@ -39,4 +39,4 @@ openstack_servers:
     openstack_cloud: "{{GUID}}-project"
     flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
     key_name: "{{GUID}}-keypair"
-    network: "{{GUID}}-prod-network"
+    network: "{{GUID}}-dev-network"
