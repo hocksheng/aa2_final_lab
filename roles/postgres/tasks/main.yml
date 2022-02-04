@@ -1,15 +1,20 @@
 ---
+    - name: Disable any postgres module repos
+      command: dnf -qy module disable postgresql
+
     - name: Install Postgres packages
-      package:
+      dnf:
         name: "{{ __package }}"
         state: present
+        enablerepo:
+          - pgdg12
+        disable_gpg_check: true
       loop: 
         - "{{ postgres_rhel8_repo }}"        
         - "{{ postgres_packages }}"
-        - "{{ postgres_library }}"
       loop_control:
         loop_var: __package
-
+        
     - name: Check if Postgres initialized
       stat:
         path: "{{ postgres_12_data_dir }}/PG_VERSION"
