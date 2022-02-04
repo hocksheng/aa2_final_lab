@@ -37,9 +37,9 @@
  
     - name: Check webserver for correct response
       uri:
-        url: "http://frontend1.{{ GUID }}.example.opentlc.com"
+        url: "http://frontend.example.com/ping"
         return_content: yes
-      until: '"Welcome to Tomcat" in result.content'
+      until: '"alive" in result.content'
       retries: 10
       delay: 1
       register: result
