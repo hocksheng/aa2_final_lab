@@ -35,12 +35,12 @@
     - smoketest  
   tasks:
  
-    - name: Check webserver for correct response
-      uri:
-        url: "http://'{{ hostvars['frontend1']['ansible_default_ipv4']['address'] }}'/ping"
-        return_content: yes
-      until: '"alive" in result.content'
-      retries: 10
-      delay: 1
-      register: result
-      delegate_to: localhost
+- name: Check webserver for correct response
+  uri:
+    url: "http://{{ hostvars['frontend1']['ansible_default_ipv4']['address'] }}/ping"
+    return_content: yes
+  until: '"alive" in result.content'
+  retries: 10
+  delay: 1
+  register: result
+  delegate_to: localhost
