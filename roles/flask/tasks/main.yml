@@ -6,13 +6,14 @@
         line: "{{ groups.database_servers[0] }} database-01"
   #    line: "{{ hostvars['appdb1']['ansible_default_ipv4']['address'] }} appdb1"
         state: present
+        
     - name: Create flask user
       user:
         name: "{{ flask_user }}"
         state: present  
 
     - name: Install flask packages
-      package:
+      dnf:
         name: "{{ __package }}"
         state: present
         disable_gpg_check: true
@@ -44,7 +45,7 @@
           pip:
             name: "{{ pip_dependencies }}"
             state: latest
-            executable: /usr/bin/pip3
+            executable: /usr/bin/pip3.8
 
         - name: "Create virtualenv {{ virtualenv_name }} for Flask"
           pip:
